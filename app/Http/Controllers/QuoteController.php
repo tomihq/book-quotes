@@ -13,7 +13,11 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        //
+        $randomQuote = Quote::query()
+            ->orderByRaw('RANDOM()')
+            ->first();
+        
+        return response()->json($randomQuote);
     }
 
     /**

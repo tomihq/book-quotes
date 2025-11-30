@@ -17,7 +17,10 @@ class QuoteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'text' => fake()->sentence(),
+            'author' => fake()->name(),
+            'book' => fake()->words(3, true),
+            'page' => fake()->numberBetween(1, 500),
         ];
     }
 }
