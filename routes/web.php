@@ -17,8 +17,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
+Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes.index');
+
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes.index');
     Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');
 });
 require __DIR__.'/settings.php';
