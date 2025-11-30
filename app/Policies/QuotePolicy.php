@@ -29,7 +29,7 @@ class QuotePolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**

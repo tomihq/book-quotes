@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
+use App\Http\Controllers\QuoteController;
 
 Route::get('/', function () {
     return Inertia::render('welcome', [
@@ -16,4 +17,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes.index');
+    Route::post('/quotes', [QuoteController::class, 'store'])->name('quotes.store');
+});
 require __DIR__.'/settings.php';

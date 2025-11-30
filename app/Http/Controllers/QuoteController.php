@@ -29,7 +29,9 @@ class QuoteController extends Controller
      */
     public function store(StoreQuoteRequest $request)
     {
-        //
+        Quote::create($request->validated());
+
+        return redirect()->route('quotes.index');
     }
 
     /**

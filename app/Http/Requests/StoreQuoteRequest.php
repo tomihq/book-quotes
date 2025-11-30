@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Quote;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreQuoteRequest extends FormRequest
@@ -11,7 +12,7 @@ class StoreQuoteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return $this->user()->can('create', Quote::class);
     }
 
     /**
@@ -22,7 +23,10 @@ class StoreQuoteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'text' => ['required', 'string'],
+            'author' => ['required', 'string'],
+            'book' => ['required', 'string'],
+            'page' => ['nullable', 'integer'],
         ];
     }
 }
