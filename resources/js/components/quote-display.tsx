@@ -111,11 +111,11 @@ export const QuoteDisplay = forwardRef<QuoteDisplayRef>((props, ref) => {
       </Card>
 
       <div className="flex flex-col gap-3 sm:flex-row">
-        <Button onClick={fetchRandomQuote} disabled={isLoading} className="flex-1" size="lg">
+        <Button onClick={fetchRandomQuote} disabled={isLoading} className="sm:flex-1 " size="lg">
           <RefreshCw className={`mr-2 h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
           Nueva Quote
         </Button>
-        <Button onClick={handleShare} variant="outline" className="flex-1 bg-transparent" size="lg">
+        <Button onClick={handleShare} variant="outline" className="sm:flex-1 bg-transparent" size="lg">
           <Share2 className="mr-2 h-4 w-4" />
           Compartir en Twitter
         </Button>
